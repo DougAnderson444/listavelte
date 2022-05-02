@@ -10,4 +10,8 @@
 
 <Todo bind:todos />
 
-{@html JSON.stringify(todos, null, 2)}
+<div class="p-2">
+	<h1 class="my-2 font-semibold text-blue-400">As you update the list, the data also updates:</h1>
+
+	{@html JSON.stringify(todos, null, 2)}
+</div>
