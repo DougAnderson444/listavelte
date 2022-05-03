@@ -5,9 +5,7 @@
 	import { crossfade } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
 
-	import { customAlphabet } from 'nanoid';
-
-	const uid = customAlphabet('346789ABCDEFGHJKLMNPQRTUVWXYabcdefghijkmnpqrtwxyz', 16);
+	const uid = () => (((1 << 24) * Math.random()) | 0).toString(16);
 
 	interface Todo {
 		id: string | number;
