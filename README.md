@@ -42,3 +42,9 @@ See src/routes/index.svelte for Demo usage:
 ## Developing
 
 Issues, pull requests, and forks are welcome
+
+### Building
+
+As of this writing, Sveltekit [doesn't build and bundle components alone](https://github.com/sveltejs/kit/issues/3882). So a Rollupjs file is needed to do this separately after `package` is complete.
+
+Tailwindcss is incorporated into this step using `postcss` in `rollup.config.bundle.js`.
