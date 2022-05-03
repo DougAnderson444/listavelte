@@ -1,5 +1,5 @@
 <script>
-	import '../app.css';
+	import '@douganderson444/listavelte/app.css';
 </script>
 
 <slot />
