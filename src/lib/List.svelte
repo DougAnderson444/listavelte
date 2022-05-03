@@ -39,7 +39,7 @@
 		}
 	});
 
-	export let todos = [
+	export let todos: Todo[] = [
 		{ id: uid(), done: false, high: true, description: 'write some docs' },
 		{ id: uid(), done: false, high: false, description: 'start writing blog post' },
 		{ id: uid(), done: true, high: false, description: 'buy some milk' },
@@ -143,7 +143,7 @@
 				class="flex flex-row items-center w-80"
 			>
 				<input type="checkbox" checked on:change={() => mark(todo, false)} class="mx-2 flex-none" />
-				<div class="flex-grow">
+				<div class="flex-grow text-gray-400">
 					{todo.description}
 				</div>
 

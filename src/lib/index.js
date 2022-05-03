@@ -1,1 +1,1 @@
-export { default as Todo } from './List.svelte';
+export { default as TaskList } from './List.svelte';

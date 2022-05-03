@@ -1,6 +1,7 @@
 {
 	"name": "@douganderson444/listavelte",
-	"version": "0.0.1",
+	"module": "src/lib/index.js",
+	"version": "0.0.2",
 	"scripts": {
 		"dev": "svelte-kit dev --port 3004",
 		"build": "svelte-kit build",

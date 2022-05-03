@@ -1,6 +1,6 @@
-# Svelte Todo List
+# List-a-Svelte Task List Tracker
 
-The ultimate Todo List.
+The ultimate Task List?
 
 - [x] Add new todos
 - [x] Mark High priorities
@@ -20,7 +20,7 @@ See src/routes/index.svelte for Demo usage:
 
 ```js
 <script>
-	import { Todo } from '@douganderson444/listavelte';
+	import { TaskList } from '@douganderson444/listavelte';
 	let uid = 1;
 
 	let todos = [
@@ -29,7 +29,7 @@ See src/routes/index.svelte for Demo usage:
 	];
 </script>
 
-<Todo {todos} />
+<TaskList {todos} />
 ```
 
 ## Developing
