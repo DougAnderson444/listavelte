@@ -6,9 +6,8 @@
 	import { flip } from 'svelte/animate';
 
 	import { customAlphabet } from 'nanoid';
-	import { nolookalikes } from 'nanoid-dictionary';
 
-	const uid = customAlphabet(nolookalikes, 16);
+	const uid = customAlphabet('346789ABCDEFGHJKLMNPQRTUVWXYabcdefghijkmnpqrtwxyz', 16);
 
 	interface Todo {
 		id: string | number;
