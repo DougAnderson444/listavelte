@@ -16,6 +16,13 @@ If you're seeing this, you've probably already done this step. Congrats!
 npm install github:douganderson444/listavelte
 ```
 
+[NPM](https://www.npmjs.com/package/@douganderson444/listavelte):
+
+```cs
+# install the component from npm
+npm install @douganderson444/listavelte
+```
+
 See src/routes/index.svelte for Demo usage:
 
 ```js

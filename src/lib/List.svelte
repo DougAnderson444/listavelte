@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '../app.css';
+	import './app.css';
 
 	import { quintOut } from 'svelte/easing';
 	import { crossfade } from 'svelte/transition';
