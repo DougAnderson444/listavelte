@@ -1,1 +1,1 @@
-export { default as TaskList, default } from "./List.svelte";
+export { default as TaskList } from "./List.svelte";

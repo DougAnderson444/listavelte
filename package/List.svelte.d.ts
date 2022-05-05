@@ -1,5 +1,4 @@
 import { SvelteComponentTyped } from "svelte";
-import './app.css';
 declare const __propDef: {
     props: {
         todos?: {
