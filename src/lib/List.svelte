@@ -1,5 +1,5 @@
 <script lang="ts">
-	import './app.css';
+	// import './app.css';
 
 	import { quintOut } from 'svelte/easing';
 	import { crossfade } from 'svelte/transition';
@@ -137,19 +137,28 @@
 				in:receive={{ key: todo.id }}
 				out:send={{ key: todo.id }}
 				animate:flip={{ duration: 200 }}
-				class="flex flex-row items-center w-80"
+				class="flex flex-row items-center py-1 w-80"
 			>
 				<input type="checkbox" checked on:change={() => mark(todo, false)} class="mx-2 flex-none" />
 				<div class="flex-grow text-gray-400">
 					{todo.description}
 				</div>
 
-				<button
+				<!-- <button
 					on:click={() => remove(todo)}
 					class="mx-2 flex-none px-4 py-1 text-xs text-red-400 font-semibold rounded-full hover:text-white hover:bg-red-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
 					>X</button
-				>
+				> -->
 			</label>
 		{/each}
 	</div>
 </div>
+
+<style lang="postcss">
+	/* optional  */
+	/* @tailwind base; */
+	@tailwind components;
+
+	/* mandatory  */
+	@tailwind utilities;
+</style>
