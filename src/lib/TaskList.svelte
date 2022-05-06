@@ -157,8 +157,9 @@
 <style lang="postcss">
 	/* optional  */
 	/* @tailwind base; */
-	@tailwind components;
+	/* @tailwind components; */
 
 	/* mandatory  */
+	/* TODO: All the app's css gets put here, meaning we have unused css we need to purge  */
 	@tailwind utilities;
 </style>
