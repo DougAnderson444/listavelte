@@ -17,47 +17,49 @@ const sourcemapFile = file + '.map';
 
 addBundleExports(packageFolder, file, sourcemapFile);
 
-export default {
-	input: 'src/lib/index.js',
-	output: [
-		// this destination is for npm
-		{
-			file,
-			format: 'es',
-			sourcemap: true,
-			inlineDynamicImports: true
-		},
-		// this destination is for github
-		{
-			file: pkg.module,
-			format: 'es',
-			sourcemap: true,
-			inlineDynamicImports: true
-		}
-	],
-	plugins: [
-		postcss({ extract: true }),
-		svelte({
-			compilerOptions: {
-				// enable run-time checks when not in production
-				dev: !production
+export default [
+	{
+		input: 'src/lib/index.js',
+		output: [
+			// this destination is for npm
+			{
+				file,
+				format: 'es',
+				sourcemap: true,
+				inlineDynamicImports: true
 			},
+			// this destination is for github
+			{
+				file: pkg.module,
+				format: 'es',
+				sourcemap: true,
+				inlineDynamicImports: true
+			}
+		],
+		plugins: [
+			postcss({ extract: true }),
+			svelte({
+				compilerOptions: {
+					// enable run-time checks when not in production
+					dev: !production,
+				},
 
-			// we want to embed the CSS in the generated JS bundle
-			emitCss: false,
+				// we want to embed the CSS in the generated JS bundle
+				emitCss: false,
 
-			preprocess: sveltePreprocess()
-		}),
+				preprocess: sveltePreprocess()
+			}),
 
-		resolve({
-			browser: true
-		}),
-		commonjs(),
-		json(),
+			resolve({
+				browser: true
+			}),
+			commonjs(),
+			json(),
 
-		typescript(),
+			typescript()
 
-		// minify
-		production && terser()
-	]
-};
+			// minify
+			production && terser()
+		]
+	}
+];
