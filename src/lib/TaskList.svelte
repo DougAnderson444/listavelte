@@ -139,7 +139,13 @@
 				animate:flip={{ duration: 200 }}
 				class="flex flex-row items-center py-1 w-80"
 			>
-				<input type="checkbox" checked on:change={() => mark(todo, false)} class="mx-2 flex-none" />
+				<input
+					type="checkbox"
+					disabled
+					checked={todo.done}
+					on:change={() => mark(todo, false)}
+					class="mx-2 flex-none"
+				/>
 				<div class="flex-grow text-gray-400">
 					{todo.description}
 				</div>

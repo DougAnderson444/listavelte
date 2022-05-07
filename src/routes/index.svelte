@@ -1,5 +1,5 @@
 <script>
-	import { TaskList } from '@douganderson444/listavelte';
+	import { TaskList, Styling } from '@douganderson444/listavelte';
 	let uid = 1;
 
 	let todos = [
@@ -11,6 +11,9 @@
 
 <TaskList bind:todos />
 
+<Styling>
+	<TaskList />
+</Styling>
 <div class="p-2 text-gray-400">
 	<h1 class="my-2 font-semibold text-blue-400">As you update the list, the data also updates:</h1>
 
