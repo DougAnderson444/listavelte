@@ -5,7 +5,7 @@
 
 <!-- @import via postcss-import as defined at ./postcss.config.cjs -->
 
-<!-- global  -->
-<style lang="postcss">
+<!--   -->
+<style global lang="postcss">
 	@import './stylesheet.scss';
 </style>
