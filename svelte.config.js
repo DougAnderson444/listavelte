@@ -13,12 +13,15 @@ const config = {
 	preprocess: sveltePreprocess({
 		postcss: true, // set postcss: true if postcss-load-config is installed and svelte-preprocess will look for a PostCSS config file in your project.,
 		// postcss: {
+		// 	sourcemap: false,
+		// 	extract: true // 'extracted.css'
 		// 	plugins: [
-		// 		purgecss({
+		// 		purgecss({   // cannot seem to get purge to work
 		// 			content: ['./package/**/*.svelte']
 		// 		})
 		// 	]
-		// }
+		// },
+
 		globalStyle: {} // enables us to have :global css
 	}),
 	prerender: { default: true },

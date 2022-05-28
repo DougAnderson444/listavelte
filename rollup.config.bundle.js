@@ -28,7 +28,7 @@ export default [
 				sourcemap: true,
 				inlineDynamicImports: true
 			},
-			// this destination is for github
+			// this destination is for github dist/ folder
 			{
 				file: pkg.module,
 				format: 'es',
@@ -37,18 +37,22 @@ export default [
 			}
 		],
 		plugins: [
-			postcss({ extract: true }),
+			// https://github.com/sveltejs/rollup-plugin-svelte
 			svelte({
 				compilerOptions: {
 					// enable run-time checks when not in production
-					dev: !production,
+					dev: !production
 				},
 
 				// we want to embed the CSS in the generated JS bundle
-				emitCss: false,
+				emitCss: false, // embed the css in the js file
+				// emitCss: true, // extract to a separate css file using ppostcss
 
-				preprocess: sveltePreprocess()
+				preprocess: sveltePreprocess({
+					postcss: true
+				})
 			}),
+			postcss({ extract: true }), // needed if emitCss: true
 
 			resolve({
 				browser: true
@@ -56,7 +60,7 @@ export default [
 			commonjs(),
 			json(),
 
-			typescript()
+			typescript(),
 
 			// minify
 			production && terser()
