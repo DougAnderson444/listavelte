@@ -1,9 +1,11 @@
 <script lang="ts">
 	// import './app.css';
-
+	import { createEventDispatcher } from 'svelte';
 	import { quintOut } from 'svelte/easing';
 	import { crossfade } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
+
+	const dispatch = createEventDispatcher();
 
 	const uid = () => (((1 << 24) * Math.random()) | 0).toString(16);
 
@@ -17,6 +19,15 @@
 	/** Styles */
 	let checkboxStyle = 'flex flex-row items-center w-80';
 	let high = 'border bg-green-400';
+
+	export let todos: Todo[] = [
+		{ id: uid(), done: false, high: true, description: 'write some docs' },
+		{ id: uid(), done: false, high: false, description: 'start writing blog post' },
+		{ id: uid(), done: true, high: false, description: 'buy some milk' },
+		{ id: uid(), done: false, high: false, description: 'mow the lawn' },
+		{ id: uid(), done: false, high: false, description: 'feed the turtle' },
+		{ id: uid(), done: false, high: false, description: 'fix some bugs' }
+	];
 
 	const [send, receive] = crossfade({
 		duration: (d) => Math.sqrt(d * 200),
@@ -36,14 +47,8 @@
 		}
 	});
 
-	export let todos: Todo[] = [
-		{ id: uid(), done: false, high: true, description: 'write some docs' },
-		{ id: uid(), done: false, high: false, description: 'start writing blog post' },
-		{ id: uid(), done: true, high: false, description: 'buy some milk' },
-		{ id: uid(), done: false, high: false, description: 'mow the lawn' },
-		{ id: uid(), done: false, high: false, description: 'feed the turtle' },
-		{ id: uid(), done: false, high: false, description: 'fix some bugs' }
-	];
+	// this fires when todos change; let's emit an event to update any listeners consuming this component
+	$: if (todos) dispatch('change', todos);
 
 	/**
 	 * @param {HTMLInputElement} input
@@ -143,7 +148,7 @@
 					type="checkbox"
 					disabled
 					checked={todo.done}
-					on:change={() => mark(todo, false)}
+					on:click={() => mark(todo, false)}
 					class="mx-2 flex-none"
 				/>
 				<div class="flex-grow text-gray-400">
