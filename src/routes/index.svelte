@@ -10,10 +10,10 @@
 </script>
 
 <TaskList bind:todos />
-
+<!-- 
 <Styling>
 	<TaskList />
-</Styling>
+</Styling> -->
 <div class="p-2 text-gray-400">
 	<h1 class="my-2 font-semibold text-blue-400">As you update the list, the data also updates:</h1>
 
