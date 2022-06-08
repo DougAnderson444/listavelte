@@ -48,7 +48,7 @@
 	});
 
 	// this fires when todos change; let's emit an event to update any listeners consuming this component
-	$: if (todos) dispatch('change', todos);
+	$: if (todos) dispatch('change', { todos });
 
 	/**
 	 * @param {HTMLInputElement} input
@@ -106,9 +106,10 @@
 				animate:flip={{ duration: 200 }}
 				class="flex flex-row items-center mb-1 w-80"
 			>
-				<input type="checkbox" on:change={() => mark(todo, true)} class="mx-2 flex-none" />
+				<input class="m-2 flex-none" type="checkbox" on:change={() => mark(todo, true)} />
 				<div
 					contenteditable
+					bind:innerHTML={todo.description}
 					class="flex-grow break-all"
 					on:keydown={function (e) {
 						if (e.key == 'Enter') {
@@ -117,9 +118,7 @@
 							this.blur();
 						}
 					}}
-				>
-					{todo.description}
-				</div>
+				/>
 				<button
 					on:click={(e) => (todo.high = !todo.high)}
 					class="{todo.high
@@ -146,20 +145,19 @@
 			>
 				<input
 					type="checkbox"
-					disabled
 					checked={todo.done}
 					on:click={() => mark(todo, false)}
-					class="mx-2 flex-none"
+					class="mx-2 my-0 flex-none"
 				/>
-				<div class="flex-grow text-gray-400">
+				<div class="flex-grow text-gray-300">
 					{todo.description}
 				</div>
 
-				<!-- <button
+				<button
 					on:click={() => remove(todo)}
 					class="mx-2 flex-none px-4 py-1 text-xs text-red-400 font-semibold rounded-full hover:text-white hover:bg-red-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
 					>X</button
-				> -->
+				>
 			</label>
 		{/each}
 	</div>
