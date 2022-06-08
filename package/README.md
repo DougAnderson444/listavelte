@@ -1,6 +1,6 @@
 # List-a-Svelte Task List Tracker
 
-The ultimate Task List?
+TODO MVC for a Svelte component. And, quite possibly: The ultimate Task List?
 
 - [x] Add new todos
 - [x] Mark High priorities
@@ -36,7 +36,7 @@ See src/routes/index.svelte for Demo usage:
 	];
 </script>
 
-<TaskList {todos} />
+<TaskList {todos} on:change={event=> console.log("The todo list chaned to", event.detail.todos )} />
 ```
 
 ## Developing
