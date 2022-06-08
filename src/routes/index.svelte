@@ -9,7 +9,7 @@
 	];
 </script>
 
-<TaskList bind:todos on:change={(e) => console.log('changed')} />
+<TaskList bind:todos on:change={(e) => console.log('changed', e.detail.todos)} />
 
 <TaskList on:change={(e) => console.log('changed')} />
 
